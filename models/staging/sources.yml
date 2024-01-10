@@ -1,0 +1,11 @@
+version: 2
+
+sources:
+  - name: sales
+    database: sales
+    schema: public
+    tables:
+      - name: product
+      - name: customer
+      - name: transaction
+      - name: stock
