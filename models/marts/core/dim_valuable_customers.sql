@@ -27,9 +27,9 @@ customer_purchase_data as(
         customerid,
         firstname,
         lastname,
-        sum(quantity) as purchase_count,
-        sum(totalamount) purchase_amount
+        coalesce(sum(quantity),0) as purchase_count,
+        coalesce(sum(totalamount),0) purchase_amount
     from customer_order_history_data
     group by customerid,firstname,lastname
 )
-select * from customer_purchase_data where purchase_count > 100
+select * from customer_purchase_data order by purchase_amount desc
