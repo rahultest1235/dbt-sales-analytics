@@ -1,8 +1,8 @@
-WITH product AS (
-    SELECT * FROM stg_product
+with product as (
+    select * from {{ ref('stg_product')}}
 ),
-stock AS (
-    SELECT * FROM stg_stock
+stock as (
+    select * from {{ ref('stg_stock')}}
 ),
 inventory_stock_data AS (
     SELECT
